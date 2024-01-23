@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mysite</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <script src="https://kit.fontawesome.com/4e66209748.js" crossorigin="anonymous"></script>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   
+  </head>
+
+  <body>
+  <header>
+  <div class="header-logo">
+    <h1>paxiv</h1>
+  </div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+    <div id="g-nav-list">
+      <ul>
+        <li>
+        <%= link_to "新規投稿", new_post_path %>
+        </li>
+        <li>
+        <%= link_to "検索", posts_path %>
+        </li>
+        <li>
+        <% if user_signed_in? %>
+              <li>
+              <%= link_to "Mypage", user_path(current_user.id) %>
+              <li>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              </li>
+              <% else %>
+            <li><%= link_to "Signin", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+  <main>
+   <%= yield %>
+  </main>
+
+ </body>
+</html>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+ <script>
+$(".openbtn").click(function () {
+ $(this).toggleClass("active");
+ $("#g-nav").toggleClass("panelactive");
+});
+$("#g-nav a").click(function () {
+ $(".openbtn").removeClass("active");
+ $("#g-nav").removeClass("panelactive");
+});
+</script>

@@ -1,0 +1,168 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+      font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+      Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+      background-color: #ffffff;
+   }
+  header {
+    background-color: #00acee;
+    height: 80px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header a {
+    color: white; 
+    text-decoration: none; 
+  }
+
+  header h1 {
+    color: white;
+    margin-left: 20px;
+  }
+
+  .header-list {
+    display: flex;
+    align-items: center;
+  }
+
+  header li {
+    list-style: none;
+    margin-right: 40px;
+  }
+
+  .all{
+    display: flex;
+  }
+  
+  .card-container {
+    white-space: nowrap;
+    //overflow-y: auto;
+    //padding-left: 72px;
+  }
+
+  .card{
+    font-weight: 300;
+    color: #ffffff;
+    width: auto;
+    height: 20px;
+    background-color: rgb(131, 192, 222);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .kennsaku{
+    margin-left: 50%;
+  }
+
+  .kennsaku2 input{
+    margin-left: 50%;
+
+  }
+
+  //.kennsaku3 input{}
+
+  .migi{
+    white-space: nowrap;
+    overflow-x: scroll;
+    padding-left: 72px;
+  }
+
+
+  .post{
+    display: inline-block;
+    width: 20;
+    height: 100;
+    background-color:  #90d2dc;
+    margin: 20px;
+    padding: 20px;
+  }
+
+  figure {
+    width: 100px;       /* 切り抜きたい大きさを指定 */
+    height: 100px;      /* 切り抜きたい大きさを指定 */
+    border-radius: 50%; /* 形を円形にする */
+    overflow: hidden;   /* はみ出した部分は非表示 */
+    position: relative; /* 基準値とする */
+  }
+
+  .post2{
+    display: inline-block;
+    width: 100;
+    height: 100;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+  }
+  
+
+ form input[type = "id"],form input[type = "title"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #ffffff;
+    padding: 15px 10px;
+    width: 600px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    text-align: center;
+  }
+  
+  form input[type = "id"],form input[type = "title"]:focus  {
+    width: 280px;
+    background-color: #ffffff;
+    border: 2px solid #5488cc;
+  }
+
+  form input[type = "id"],form input[type = "about"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #ffffff;
+    padding: 15px 10px;
+    width: 600px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    text-align: center;
+  }
+  
+  form input[type = "id"],form input[type = "about"]:focus  {
+    width: 280px;
+    background-color: #ffffff;
+    border: 2px solid #5488cc;
+  }
+
+  form input[type = "id"],form input[type = "text"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #ffffff;
+    padding: 15px 10px;
+    width: 600px;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s;
+    text-align: center;
+  }
+  
+  form input[type = "id"],form input[type = "text"]:focus  {
+    width: 280px;
+    background-color: #ffffff;
+    border: 2px solid #5488cc;
+  }

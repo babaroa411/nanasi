@@ -1,0 +1,35 @@
+<div class="sign">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+      <div class="login_form_btm"> 
+      <h2><b>新規登録</h2></b><br>
+      
+    <% if resource.errors.any? %>
+      <div id="error_explanation" data-turbo-cache="false">
+          <h2><b>
+           メールアドレスまたはパスワードが認められません  
+          </h2></b>
+
+      </div>
+    <% end %>
+
+            <div class="field">
+            <input type="email" name="email" placeholder="email">
+            </div>
+
+            <div class="field">
+            <input type="password" name="password" placeholder="Password">
+            </div>
+
+            <div class="field">           
+              <input type="password_confirmation" name="password_confirmation" placeholder="Password_confirmation">
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Sign up" %>
+            </div>
+            <% end %>
+
+          <%= render "users/shared/links" %>
+      </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="kennsaku2">   
+   <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag '検索する',class:"kennsaku3"  %>
+   <% end %>
+</div>
+
+<div class="all">
+   <div class="card-container">
+      <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+         
+         <% Tag.all.each do |t| %>
+            <div class="card">
+               <%= check_box :tag_ids, t.name, class:"hafhaf" %><%= t.name %>
+            </div>
+         <% end %>
+         <%= submit_tag '検索' %>
+      <% end %>
+   </div>
+
+   <div class="migi">
+
+      <div class="posts-container">
+
+      <% @posts.each do |t| %>
+         
+         
+         <div class="post">
+
+         <div class="post2">
+            <p>
+               <%= image_tag t.image_url, size: "300vmax" if t.image? %>
+            </p>
+            
+            <div class="like">
+                  <% if user_signed_in? %>
+                     <% if current_user.already_liked?(t) %>
+                        <%= button_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                        
+                           <i class="fas fa-heart"></i><%= t.likes.count %>
+                        
+                     <% end %>
+
+                     <% else %>
+                        <%= button_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                        
+                           <i class="far fa-heart"></i><%= t.likes.count %>
+                           
+                        <% end %>
+                  <% end %>
+                  
+                  <% else %>
+                        <i class="far fa-heart"></i><%= t.likes.count %>
+                  <% end %>
+            </div>
+         </div> 
+            <figure>
+         
+               <%= image_tag t.user.image_url, size: "120vmax" if t.user.image? %>   
+            
+            </figure>
+      
+            <%= t.title %>
+
+         <br>
+            <%= link_to "詳細へ", post_path(t.id) %>
+            
+         <% if user_signed_in? && current_user.id == t.user_id %>
+            <%= link_to "編集する", edit_post_path(t.id) %>
+            <%= link_to "削除する", post_path(t.id), method: :delete %>
+         <% end %>     
+         
+         </div>
+         <% end %>
+   </div>
+</div>
